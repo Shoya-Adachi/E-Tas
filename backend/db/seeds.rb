@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Task.create!(
+    [
+        {name: "買い物に行く", period: "2025-05-01", status: 0},
+        {name: "勉強をする", period: "2025-05-01", status: 1},
+        {name: "部屋を掃除する", period: "2025-05-01", status: 2},
+    ]
+)

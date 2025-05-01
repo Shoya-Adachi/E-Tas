@@ -3,6 +3,7 @@ import Layout from "../../Layout";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useEffect, useState } from "react";
 import { fetchTaskAllData } from "../../api/TaskApi";
+import TaskStatus from "./components/status";
 
 type DataType = {
   name: string;
@@ -53,9 +54,7 @@ const TaskListPage = () => {
                   <Box sx={{ textAlign: "start" }}>{task.name}</Box>
                 </Grid>
                 <Grid size={4}>
-                  <Box sx={{ bgcolor: "#ffcfcd", borderRadius: "5px" }}>
-                    {task.status}
-                  </Box>
+                  <TaskStatus status={task.status} />
                 </Grid>
               </Grid>
               <Box>期限：{task.period}</Box>

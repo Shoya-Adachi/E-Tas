@@ -9,7 +9,6 @@ class Api::V1::TaskController < ApplicationController
     tasks = Task.build(
       name: params[:name],      
       period: params[:period],  
-      status: params[:status], 
     )
 
     if tasks.save

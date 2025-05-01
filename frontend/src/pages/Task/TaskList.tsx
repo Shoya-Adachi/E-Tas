@@ -4,6 +4,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useEffect, useState } from "react";
 import { fetchTaskAllData } from "../../api/TaskApi";
 import TaskStatus from "./components/status";
+import TaskDialog from "./components/dialog";
 
 type DataType = {
   name: string;
@@ -13,6 +14,7 @@ type DataType = {
 
 const TaskListPage = () => {
   const [tasks, setTasks] = useState<DataType[]>([]);
+  const [open, setOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,7 +35,9 @@ const TaskListPage = () => {
           <Button
             variant="outlined"
             startIcon={<AddCircleOutlineIcon />}
-            onClick={() => {}}
+            onClick={() => {
+              setOpen(true);
+            }}
             sx={{ maxWidth: "150px", marginY: 2 }}
           >
             新規追加
@@ -67,6 +71,7 @@ const TaskListPage = () => {
           ))}
         </List>
       </Box>
+      <TaskDialog open={open} setOpen={setOpen} />
     </Layout>
   );
 };
